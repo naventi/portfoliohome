@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peyton McClenning</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Courier New', monospace;
+      color: white;
+      overflow: hidden;
+    }
+
+    .name, .title {
+      opacity: 0;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .name {
+      font-size: 2.5rem;
+      animation: flicker 3s linear forwards; /* plays once, stays on */
+    }
+
+    .title {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      animation: flicker 4s linear forwards; /* delay included */
+      animation-delay: 1.5s;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0; text-shadow: none; }
+      5% { opacity: 1; text-shadow: 0 0 5px white; }
+      10% { opacity: 0; }
+      15% { opacity: 1; text-shadow: 0 0 8px white; }
+      20% { opacity: 0; }
+      30% { opacity: 1; text-shadow: 0 0 10px white; }
+      50% { opacity: 0.8; text-shadow: 0 0 4px white; }
+      70% { opacity: 1; text-shadow: 0 0 6px white; }
+      100% { opacity: 1; text-shadow: 0 0 12px white; }
+    }
+  </style>
+</head>
+<body>
+  <div class="name">PEYTON MCCLENNING</div>
+  <div class="title">Brand Strategist & Visual Designer</div>
+</body>
+</html>
+<script>
+  // Ensure the flicker effect is triggered after the page loads
+  window.addEventListener('load', () => {
+    const name = document.querySelector('.name');
+    const title = document.querySelector('.title');
+    
+    // Trigger the animations
+    name.style.animationPlayState = 'running';
+    title.style.animationPlayState = 'running';
+  });
